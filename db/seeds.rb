@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#books = Book.create([{ title: "Ruby on Rails 5: Web App Development for Beginners "},
+#                   ])
