@@ -1,6 +1,9 @@
 <%= simple_form_for @book do |x| %>
+
+    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select add categories")%>
     <%= x.input :title, label: "Book Title" %>
     <%= x.input :description%>
     <%= x.input :author%>
     <%= x.button :submit%>
+
 <% end %>
