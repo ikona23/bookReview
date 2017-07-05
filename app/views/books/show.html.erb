@@ -3,5 +3,12 @@
 <h3><%= @book.description %></h3>
 
 <%= link_to "Back",root_path %>
+
+<% if user_signed_in? %>
+      <% @book.user_id == current_user.id %>
+
 <%= link_to "Edit", edit_book_path(@book) %>
-<%= link_to "Delete", book_path(@book), method: :delete, data: {consirm: "Are you sure?"} %>
+<%= link_to "Delete", book_path(@book), method: :delete,
+            data: {confirm: "Are you sure?"} %>
+<% end %>
+

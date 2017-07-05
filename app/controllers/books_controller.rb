@@ -11,7 +11,19 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+  #  @book = Book.new
+  #  @book = Book.new(book_params)
+    @book = current_user.books.build
+  end
+
+  def create
+#    @book = Book.new(book_params)
+    @book = current_user.books.build(book_params)
+    if @book.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -30,16 +42,6 @@ end
     @book.destroy
     redirect_to root_path
 
-  end
-
-  def create
-    @book = Book.new(book_params)
-
-    if @book.save
-      redirect_to root_path
-  else
-    render 'new'
-    end
   end
 
   private
