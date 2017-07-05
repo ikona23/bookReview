@@ -1,3 +1,13 @@
-<h1>ruby on rails app<h2>
-<p>book review system with log in system</p>
+Book review system build with rails.
+
+Download & run:
+
+ gem install
+ rake db:create
+ rake db:migrate
+
+ and run server
+
+ rails s
+
 
