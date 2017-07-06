@@ -1,4 +1,10 @@
-<h1>Edit form</h1>
-<%= render 'form' %>
-<%= link_to "Edit", edit_book_path(@book) %>
-<%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Are you sure?"} %>
+<h1>edit book</h1>
+<%= simple_form_for @book, :html => {:multipart => true} do |x| %>
+
+    <%= x.select :category_id, @categories%>
+    <%= x.input :title, label: "Book Title" %>
+    <%= x.input :description%>
+    <%= x.input :author%>
+    <%= x.button :submit%>
+
+<% end %>
