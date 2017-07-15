@@ -3,8 +3,13 @@ class BooksController < ApplicationController
   # only find
 
   def index
+    if params[:category].blank?
     @books = Book.all.order("created_at DESC")
-  end
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @books = Book.where(:category_id => @category_id).order("created_at DESC")
+    end
+    end
 
   def show
   #  @book = Book.find(params[:id])
@@ -37,7 +42,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book)
     else
       render 'edit'
-end
+    end
   end
 
   def destroy
@@ -56,5 +61,5 @@ end
     @book = Book.find(params[:id])
     #refactor find
   end
+  end
 
-end
