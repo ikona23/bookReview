@@ -2,12 +2,14 @@
 
 <% if @books.count == 0 %>
 
-    <h1>There are no books currently</h1>
+    <h1>There are no books currently available</h1>
 
     <% else %>
 
     <% @books.each do |book| %>
-      <h2><%= link_to book.title, book_path(book)%></h2>
+      <a href= "/books/<%= book.id%>">
+        <%= image_tag book.book_img.url(:book_index) %>
+        </a>
 
     <% end %>
 <% end %>
