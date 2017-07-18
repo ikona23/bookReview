@@ -16,3 +16,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+.container {
+  margin-left:auto;
+  margin-right:auto;
+  width:100%;
+  clear:both;
+}
+.book {
+  height:350px;
+  width:250px;
+  padding:15px;
+  margin-left:20px;
+}
+
+.book-show {
+  height:475px;
+  width:325px;
+}
