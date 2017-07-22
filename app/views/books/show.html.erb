@@ -1,31 +1,35 @@
 <div class="row">
 
-<div class="col-md-4">
-<%= image_tag @book.book_img.url(:book_show), class: "book-show well" %>
-</div>
+    <div class="col-md-4">
+    <%= image_tag @book.book_img.url(:book_show), class: "book-show well" %>
+    </div>
 
-  <div class="col-md-8">
-<h2><%= @book.title %></h2>
-<h3><%= @book.author %></h3>
-<p class="well"><%= @book.description %></p>
-</div>
-</div>
+      <div class="col-md-8">
+        <h2><%= @book.title %></h2>
+        <h3><%= @book.author %></h3>
+        <p class="well"><%= @book.description %></p>
+      </div>
+    </div>
 
-<div class="row">
-  <div class="col-md-4">
+    <div class="row">
 
-    <!-- this is review -->
-  </div>
-</div>
-<%= link_to "Back",root_path,class: "btn btn-primary" %>
+      <div class="col-md-4">
+        <h3>Review</h3>
+        <!-- this is review -->
+      </div>
 
-<% if user_signed_in? %>
+    </div>
 
-    <% @book.user_id == current_user.id %>
+    <%= link_to "Back",root_path,class: "btn btn-primary" %>
 
-      <%= link_to "Edit", edit_book_path(@book),class: "btn btn-primary" %>
-      <%= link_to "Delete", book_path(@book),class: "btn btn-primary",
-                  method: :delete,
-                  data: {confirm: "Are you sure?"} %>
+    <% if user_signed_in? %>
+
+    <% if @book.user_id == current_user.id %>
+
+          <%= link_to "Edit", edit_book_path(@book),class: "btn btn-primary" %>
+          <%= link_to "Delete", book_path(@book),class: "btn btn-primary",
+                      method: :delete,
+                      data: {confirm: "Are you sure?"} %>
+  <% end %>
 <% end %>
 
