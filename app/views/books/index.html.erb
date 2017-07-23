@@ -9,9 +9,9 @@
     <div class="row">
 
     <% @books.each do |book| %>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6 ">
       <a href= "/books/<%= book.id%>">
-        <%= image_tag book.book_img.url(:book_index), class: "book well" %>
+        <%= image_tag book.book_img.url(:book_index), class: "book well center-block" %>
         </a>
           </div>
 
