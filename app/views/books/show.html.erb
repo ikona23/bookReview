@@ -7,6 +7,8 @@
       <div class="col-md-8">
         <h2><%= @book.title %></h2>
         <h3><%= @book.author %></h3>
+        <h2>Average Rating</h2>
+        <div class="average-review-rating" data-score=<%= @average_review %>></div>
         <p class="well"><%= @book.description %></p>
       </div>
     </div>
@@ -38,4 +40,24 @@
                       data: {confirm: "Are you sure?"} %>
   <% end %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $('.review-rating').raty({
+    readOnly:true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
+
+<script type="text/javascript" charset="utf-8">
+$('.average-review-rating').raty({
+  readOnly: true,
+  path: '/assets/',
+  score: function(){
+    return $(this).attr('data-score')
+  }
+});
+</script>
 
