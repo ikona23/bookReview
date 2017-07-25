@@ -9,6 +9,7 @@
         <h3><%= @book.author %></h3>
         <h2>Average Rating</h2>
         <div class="average-review-rating" data-score=<%= @average_review %>></div>
+        <span>Based on <%= @book.reviews.count %></span>
         <p class="well"><%= @book.description %></p>
       </div>
     </div>
